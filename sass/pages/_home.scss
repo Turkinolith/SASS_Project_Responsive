@@ -17,13 +17,24 @@
       rgba($color-primary-light, 0.801),
       rgba($color-primary-dark, 0.801)
     ),
-    url(../../img/nat-4.jpg);
+    url(../../img/nat-4-small.jpg);
   background-size: cover;
   background-position: top;
   position: relative;
-
   transform: skewY(-7deg);
   margin-top: -15rem;
+
+  //* If viewer is using high resolution device & display is larger than phone size, use high rez image.
+  //* OR If display is 2000px or greater, use the larger rez image regardless.
+  //! Remember Media Queries are always in em: 600/16 = 37.5, 2000/16 = 125
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.801),
+        rgba($color-primary-dark, 0.801)
+      ),
+      url(../../img/nat-4.jpg);
+  }
 
   & > * {
     transform: skewY(7deg);
@@ -81,10 +92,20 @@
       rgba($color-white, 0.9) 50%,
       transparent 50%
     ),
-    url(../img/nat-10.jpg);
+    url(../img/nat-10-small.jpg);
   background-size: cover; // also can do 100% here, their different in that 100% will ensure it covers the container in the x direction.
   border-radius: 10px;
   box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    background-image: linear-gradient(
+        105deg,
+        rgba($color-white, 0.9) 0%,
+        rgba($color-white, 0.9) 50%,
+        transparent 50%
+      ),
+      url(../img/nat-10.jpg);
+  }
 
   @include respond(tab-land) {
     background-image: linear-gradient(
@@ -102,7 +123,7 @@
         rgba($color-white, 0.9) 0%,
         rgba($color-white, 0.9) 100%
       ),
-      url(../img/nat-10.jpg);
+      url(../img/nat-10-small.jpg);
   }
 
   &__form {
