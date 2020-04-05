@@ -12,6 +12,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 10px;
     box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: 0.15);
@@ -115,6 +116,7 @@
       //* OR If display is 1000px or greater, use the larger rez image regardless.
       //! Remember Media Queries are always in em: 600/16 = 37.5, 1000/16 = 62.5
       @media (min-resolution: 192dpi) and (min-width: 37.5em),
+        (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
         (min-width: 62.5em) {
         background-image: linear-gradient(
             to right bottom,
@@ -137,6 +139,7 @@
       clip-path: $card-clip-path;
 
       @media (min-resolution: 192dpi) and (min-width: 37.5em),
+        (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
         (min-width: 62.5em) {
         background-image: linear-gradient(
             to right bottom,
@@ -159,6 +162,7 @@
       clip-path: $card-clip-path;
 
       @media (min-resolution: 192dpi) and (min-width: 37.5em),
+        (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
         (min-width: 62.5em) {
         background-image: linear-gradient(
             to right bottom,
