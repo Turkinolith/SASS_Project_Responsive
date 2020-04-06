@@ -115,9 +115,9 @@
       //* If viewer is using high resolution device & display is larger than phone size, use high rez image.
       //* OR If display is 1000px or greater, use the larger rez image regardless.
       //! Remember Media Queries are always in em: 600/16 = 37.5, 1000/16 = 62.5
-      @media (min-resolution: 192dpi) and (min-width: 37.5em),
-        (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
-        (min-width: 62.5em) {
+      @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+        only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+        only screen and (min-width: 62.5em) {
         background-image: linear-gradient(
             to right bottom,
             rgba($color-secondary-light, 0.801),
@@ -138,9 +138,9 @@
       -webkit-clip-path: $card-clip-path;
       clip-path: $card-clip-path;
 
-      @media (min-resolution: 192dpi) and (min-width: 37.5em),
-        (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
-        (min-width: 62.5em) {
+      @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+        only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+        only screen and (min-width: 62.5em) {
         background-image: linear-gradient(
             to right bottom,
             rgba($color-primary-light, 0.801),
@@ -161,9 +161,9 @@
       -webkit-clip-path: $card-clip-path;
       clip-path: $card-clip-path;
 
-      @media (min-resolution: 192dpi) and (min-width: 37.5em),
-        (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
-        (min-width: 62.5em) {
+      @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+        only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+        only screen and (min-width: 62.5em) {
         background-image: linear-gradient(
             to right bottom,
             rgba($color-tertiary-light, 0.801),
@@ -236,7 +236,9 @@
     }
   }
 
-  @include respond(tab-port) {
+  //* Display the card with the back visible if screen is smaller than 56em or where using a device where touch is primary input.
+  //@include respond(tab-port) {
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     height: auto;
     border-radius: 10px;
     background-color: $color-white;
